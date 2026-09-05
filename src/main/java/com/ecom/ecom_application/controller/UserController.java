@@ -1,5 +1,7 @@
-package com.ecom.ecom_application;
+package com.ecom.ecom_application.controller;
 
+import com.ecom.ecom_application.model.User;
+import com.ecom.ecom_application.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,7 +40,7 @@ public class UserController {
       public ResponseEntity<String> updateUser(@RequestBody User user, @PathVariable Long id){
            boolean updated = userService.updateUser(user, id);
            if(updated){
-               return ResponseEntity.ok("User added successfully");
+               return ResponseEntity.ok("User updated successfully");
            }
 
            return ResponseEntity.notFound().build();
